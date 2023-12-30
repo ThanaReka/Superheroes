@@ -53,7 +53,6 @@ fun SuperHeroItem(hero: Hero, modifier: Modifier = Modifier){
                     painter = painterResource(hero.imageRes),
                     contentDescription = stringResource(hero.nameRes),
                     modifier = modifier
-                        .padding(dimensionResource(R.dimen.padding), 0.dp, 0.dp, 0.dp)
                         .clip(MaterialTheme.shapes.medium)
                 )
             }
