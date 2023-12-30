@@ -39,7 +39,6 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun SuperHeroesTopAppBar(modifier: Modifier = Modifier) {
-    TODO("Not yet implemented")
     CenterAlignedTopAppBar(
         title = {
             Text(

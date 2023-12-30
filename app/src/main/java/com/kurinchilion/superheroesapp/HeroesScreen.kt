@@ -4,8 +4,10 @@ import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CardDefaults
@@ -30,22 +32,23 @@ fun SuperHeroItem(hero: Hero, modifier: Modifier = Modifier){
             defaultElevation = dimensionResource(R.dimen.elevation)
         ),
         modifier = modifier
-            .padding(dimensionResource(R.dimen.padding))
-            .height(dimensionResource(R.dimen.layout_height))
-
     ) {
-        Box(modifier = Modifier.height(dimensionResource(R.dimen.layout_height))) {
-            Row {
-                Column {
+            Row(
+                modifier = Modifier
+                .padding(dimensionResource(R.dimen.padding))
+                .height(dimensionResource(R.dimen.layout_height))
+            ) {
+                Column(modifier = Modifier.weight(1f)) {
                     Text(
                         text = stringResource(hero.nameRes),
-//                        style = MaterialTheme.typography.displaySmall
+                        style = MaterialTheme.typography.displaySmall
                     )
                     Text(
                         text = stringResource(hero.descriptionRes),
-//                        style = MaterialTheme.typography.bodyLarge
+                        style = MaterialTheme.typography.bodyLarge
                     )
                 }
+                Spacer(Modifier.width(16.dp))
                 Image(
                     painter = painterResource(hero.imageRes),
                     contentDescription = stringResource(hero.nameRes),
@@ -58,7 +61,7 @@ fun SuperHeroItem(hero: Hero, modifier: Modifier = Modifier){
 
     }
 
-}
+
 
 @Composable
 public fun HeroesList(heroesList: List<Hero>, modifier: Modifier = Modifier){
